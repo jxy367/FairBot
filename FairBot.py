@@ -31,6 +31,9 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    if message.author.bot:
+        return
+
     exact_fair = exactly_in("fair", message.content.lower())
     if exact_fair:
         index = random.randrange(0, len(urls))
