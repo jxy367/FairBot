@@ -25,6 +25,7 @@ for url in urls:
     new_embed.set_image(url=url)
     embeds.append(new_embed)
 
+
 @client.event
 async def on_message(message):
     # we do not want the bot to reply to itself
@@ -37,7 +38,7 @@ async def on_message(message):
     exact_fair = exactly_in("fair", message.content.lower())
     if exact_fair:
         index = random.randrange(0, len(urls))
-        await client.send_message(destination=message.channel, embed=embeds[index])
+        await message.channel.send(embed=embeds[index])
 
 
 def exactly_in(str1: str, str2: str):  # str1 exactly in str2
