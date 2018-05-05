@@ -20,6 +20,10 @@ urls = ['http://www.pensacolafair.com/wp-content/themes/wp-responsive110/scripts
         'https://i.ytimg.com/vi/2yVeQRcOTi4/maxresdefault.jpg',
         'http://www.lancasterfair.com/wp-content/uploads/2017/01/44.jpg']
 
+sheik_embed = discord.Embed()
+sheik_embed.set_image(url='https://smashboards.com/proxy.php?image=http%3A%2F%2Fi.imgur.com%2FkL7DF.gif&hash=a7c7b01703c61b99820a885680fee1b7')
+
+
 for url in urls:
     new_embed = discord.Embed()
     new_embed.set_image(url=url)
@@ -37,8 +41,15 @@ async def on_message(message):
 
     exact_fair = exactly_in("fair", message.content.lower())
     if exact_fair:
-        index = random.randrange(0, len(urls))
-        await message.channel.send(embed=embeds[index])
+        if message.author.id == 191797757357457408:  # Me
+            await message.channel.send(embed=sheik_embed)
+
+        elif message.author.id == 191426236935831552:  # Danny
+            await message.channel.send(embed=sheik_embed)
+
+        else:
+            index = random.randrange(0, len(urls))
+            await message.channel.send(embed=embeds[index])
 
 
 def exactly_in(str1: str, str2: str):  # str1 exactly in str2
