@@ -41,10 +41,7 @@ async def on_message(message):
 
     exact_fair = exactly_in("fair", message.content.lower())
     if exact_fair:
-        if message.author.id == 191797757357457408:  # Me
-            await message.channel.send(embed=sheik_embed)
-
-        elif message.author.id == 191426236935831552:  # Danny
+        if message.author.id == 191426236935831552:  # Danny
             await message.channel.send(embed=sheik_embed)
 
         else:
