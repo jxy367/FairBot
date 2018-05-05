@@ -21,7 +21,7 @@ urls = ['http://www.pensacolafair.com/wp-content/themes/wp-responsive110/scripts
         'http://www.lancasterfair.com/wp-content/uploads/2017/01/44.jpg']
 
 sheik_embed = discord.Embed()
-sheik_embed.set_image(url='https://smashboards.com/proxy.php?image=http%3A%2F%2Fi.imgur.com%2FkL7DF.gif&hash=a7c7b01703c61b99820a885680fee1b7')
+sheik_embed.set_image(url='https://i.imgur.com/kL7DF.gif')
 
 
 for url in urls:
