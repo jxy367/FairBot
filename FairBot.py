@@ -43,8 +43,14 @@ async def on_message(message):
     if exact_fair:
         index = random.randrange(0, len(urls))
         if message.author.id == 191426236935831552:  # Danny
-            danny_select = random.randrange(0,2)
+            danny_select = random.randrange(0, 2)
             if danny_select == 0:
+                await message.channel.send(embed=sheik_embed)
+            else:
+                await message.channel.send(embed=embeds[index])
+        elif message.author.id == 191797757357457408:  # Me
+            me_select = random.randrange(0, 2)
+            if me_select == 0:
                 await message.channel.send(embed=sheik_embed)
             else:
                 await message.channel.send(embed=embeds[index])
