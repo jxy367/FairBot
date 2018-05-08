@@ -41,11 +41,15 @@ async def on_message(message):
 
     exact_fair = exactly_in("fair", message.content.lower())
     if exact_fair:
+        index = random.randrange(0, len(urls))
         if message.author.id == 191426236935831552:  # Danny
-            await message.channel.send(embed=sheik_embed)
+            danny_select = random.randrange(0,2)
+            if danny_select == 0:
+                await message.channel.send(embed=sheik_embed)
+            else:
+                await message.channel.send(embed=embeds[index])
 
         else:
-            index = random.randrange(0, len(urls))
             await message.channel.send(embed=embeds[index])
 
 
