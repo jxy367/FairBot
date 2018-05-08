@@ -48,12 +48,6 @@ async def on_message(message):
                 await message.channel.send(embed=sheik_embed)
             else:
                 await message.channel.send(embed=embeds[index])
-        elif message.author.id == 191797757357457408:  # Me
-            me_select = random.randrange(0, 2)
-            if me_select == 0:
-                await message.channel.send(embed=sheik_embed)
-            else:
-                await message.channel.send(embed=embeds[index])
 
         else:
             await message.channel.send(embed=embeds[index])
