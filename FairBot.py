@@ -1,4 +1,5 @@
 import discord
+import asyncio
 import random
 
 TOKEN = 'NDM5MDk1NDg0ODQyMzc3MjE3.DcOLFA.n4Py9tPAmOnFe8fOE6aiGdNyJBo'
@@ -73,11 +74,28 @@ def exactly_in(str1: str, str2: str):  # str1 exactly in str2
     return True
 
 
+async def reset_display_name():
+    for changed_guild in client.guilds:
+        if changed_guild.me.display_name != "LibraBot":
+            print(changed_guild.name)
+            print(changed_guild.me.display_name)
+            print("---")
+            await changed_guild.me.edit(nick=None)
+
+
+async def background_update():
+    await client.wait_until_ready()
+    while not client.is_closed():
+        reset_display_name()
+        await asyncio.sleep(60)
+
+
 @client.event
 async def on_ready():
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
     print('------')
+    client.loop.create_task(background_update())
 
 client.run(TOKEN)
